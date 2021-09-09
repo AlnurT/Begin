@@ -5,27 +5,31 @@
 После этого числа складываются и сумма выводится на экран."""
 
 def main():
-    n = float(input('Введите первое число: '))
-    k = float(input('Введите второе число: '))
+    n = input('Введите первое число: ')
+    k = input('Введите второе число: ')
 
-    def reverse(number: int) -> int:
+    def reverse(number: str) -> str:
+        number = int(number)
         reverse_number = 0
         while number != 0:
             reverse_number = reverse_number * 10 + number % 10
             number //= 10
+        reverse_number = str(reverse_number)
         return reverse_number
 
-    def()
 
-    def separation_and_assembly(number: float) -> float:
-        from decimal import Decimal
-        int_number = int(number)
-        fractional_number = Decimal(number - int_number)
-        count_fractional_number = 0
-        while fractional_number != 0:
-            count_fractional_number += 1
-            fractional_number //= 10
-        new_number = reverse(int_number) + reverse(fractional_number) /  count_fractional_number
+    def separation_and_assembly(number: str) -> float:
+        int_numb_bool = True
+        int_number = ''
+        fractional_number = ''
+        for symbol in number:
+            if symbol != '.' and int_numb_bool == True:
+                int_number += symbol
+            elif symbol == '.':
+                int_numb_bool = False
+            elif int_numb_bool == False:
+                fractional_number += symbol
+        new_number = float(reverse(int_number) + '.' + reverse(fractional_number))
         return new_number
 
     new_n = separation_and_assembly(n)
