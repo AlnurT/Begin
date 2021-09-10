@@ -5,20 +5,23 @@
 def main():
     n = input('Введите число: ')
 
-    def summa(n: str) -> int:
+    def summa(n: str) -> str:
         summ = 0
         for symbol in n:
             summ += int(symbol)
+        print(f'\nСумма цифр: {summ}')
         return summ
 
-    def counting_numbers(n: str) -> int:
+    def counting_numbers(n: str) -> str:
         count = 0
         for symbol in n:
             count += 1
+        print(f'Кол-во цифр в числе: {count}')
         return count
 
-    print('\nСумма цифр:', summa(n))
-    print('Кол-во цифр в числе:', counting_numbers(n))
-    print('Разность суммы и кол-ва цифр:', summa(n) - counting_numbers(n))
+    sub = summa(n) - counting_numbers(n)
+    print(f'Разность суммы и кол-ва цифр: {sub}')
+    return sub
 
-main()
+if __name__ == '__main__':
+    main()

@@ -9,12 +9,9 @@ def main():
     k = input('Введите второе число: ')
 
     def reverse(number: str) -> str:
-        number = int(number)
-        reverse_number = 0
-        while number != 0:
-            reverse_number = reverse_number * 10 + number % 10
-            number //= 10
-        reverse_number = str(reverse_number)
+        reverse_number = ''
+        for symbol in number:
+            reverse_number = symbol + reverse_number
         return reverse_number
 
 
@@ -34,9 +31,11 @@ def main():
 
     new_n = separation_and_assembly(n)
     new_k = separation_and_assembly(k)
-    print('\nПервое число наоборот:', new_n)
-    print('Второе число наоборот:', new_k)
-    print('Сумма:', new_n + new_k)
+    print(f'\nПервое число наоборот: {new_n}')
+    print(f'Второе число наоборот: {new_k}')
+    new = new_k + new_n
+    print(f'Сумма: {new}')
+    return new
 
-
-main()
+if __name__ == '__main__':
+    main()

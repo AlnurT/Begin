@@ -17,12 +17,15 @@ def main():
     x_diff = x1 - x2
     y_diff = y1 - y2
     if x_diff == 0:
-        print("x = ", x1)
+        func = f'x = {x1}'
     elif y_diff == 0:
-        print("y = ", y1)
+        func = f'y = {y1}'
     else:
         k = y_diff / x_diff
         b = y2 - k * x2
-        print("y = ", k, "* x +", b)
+        func = f'y = {k} * x + ({b})'
+    print(func)
+    return func
 
-main()
+if __name__ == '__main__':
+    main()

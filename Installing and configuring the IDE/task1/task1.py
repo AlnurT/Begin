@@ -5,11 +5,7 @@
 import platform
 import sys
 
-info = 'OS info is \n{}\n\nPython version is {} {}'.format(
-    platform.uname(),
-    sys.version,
-    platform.architecture(),
-)
+info = f'OS info is \n{platform.uname()}\n\nPython version is {sys.version} {platform.architecture()}'
 
 print(info)
 
