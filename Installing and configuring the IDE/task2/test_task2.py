@@ -1,2 +1,13 @@
-def test_task2():
-    assert True
+from task2.task2 import equation
+
+
+def test_equation_standart_form():
+    assert equation(10, 20, 15, 25) == "y = 1.0 * x + (10.0)"
+
+
+def test_equation_vertical_line():
+    assert equation(10, 20, 10, 25) == "x = 10"
+
+
+def test_equation_horizontal_line():
+    assert equation(10, 20, 15, 20) == "y = 20"

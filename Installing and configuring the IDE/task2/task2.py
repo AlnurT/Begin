@@ -4,28 +4,32 @@
 проходящей через эти две точки, в виде y = k * x + b, где k и b — числа,
 означающие угловой коэффициент и вертикальное смещение прямой. Вот текст этой программы:"""
 
-def main():
-    print("Введите первую точку")
-    x1 = float(input('X: '))
-    y1 = float(input('Y: '))
 
-    print("\nВведите вторую точку")
-    x2 = float(input('X: '))
-    y2 = float(input('Y: '))
-
-    print("Уравнение прямой, проходящей через эти точки:")
+def equation(x1: float, y1: float, x2: float, y2: float) -> str:
     x_diff = x1 - x2
     y_diff = y1 - y2
     if x_diff == 0:
-        func = f'x = {x1}'
+        return f"x = {x1}"
     elif y_diff == 0:
-        func = f'y = {y1}'
+        return f"y = {y1}"
     else:
         k = y_diff / x_diff
         b = y2 - k * x2
-        func = f'y = {k} * x + ({b})'
-    print(func)
-    return func
+        return f"y = {k} * x + ({b})"
 
-if __name__ == '__main__':
+
+def main():
+    print("Введите первую точку")
+    x1 = float(input("X: "))
+    y1 = float(input("Y: "))
+
+    print("\nВведите вторую точку")
+    x2 = float(input("X: "))
+    y2 = float(input("Y: "))
+
+    print("Уравнение прямой, проходящей через эти точки:")
+    print(equation(x1, y1, x2, y2))
+
+
+if __name__ == "__main__":
     main()

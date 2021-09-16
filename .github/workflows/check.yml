@@ -11,7 +11,8 @@ on:
       - '**.py'
       - '.github/workflows/**'
       - '.flake8'
-      - './requirements/requirements-dev.txt'
+      - './requirements/common.txt'
+      - './requirements/linters.txt'
 
 jobs:
   check:
@@ -24,7 +25,8 @@ jobs:
           python-version: 3.9
       - name: Install dependencies
         run: |
-          pip install -r ./requirements/requirements-dev.txt
+          pip install -r ./requirements/common.txt
+          pip install -r ./requirements/linters.txt
       - name: Black check
         run: |
           black . --check
@@ -36,4 +38,4 @@ jobs:
           flake8 . --format="::error file=%(path)s,line=%(row)d,col=%(col)d::%(path)s:%(row)d:%(col)d: %(code)s %(text)s"
       - name: Test with pytest
         run: |
-          pytest -v --cov=All_home_works
+          pytest -v

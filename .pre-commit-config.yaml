@@ -3,7 +3,7 @@ default_stages:
   - manual
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.4.0
+    rev: v4.0.1
     hooks:
       - id: check-added-large-files
       - id: check-executables-have-shebangs
@@ -16,11 +16,11 @@ repos:
       - id: mixed-line-ending
       - id: trailing-whitespace
   - repo: https://github.com/psf/black
-    rev: 21.5b0
+    rev: 21.8b0
     hooks:
       - id: black
   - repo: https://gitlab.com/pycqa/flake8/
-    rev: 3.9.1
+    rev: 3.9.2
     hooks:
       - id: flake8
         additional_dependencies:
@@ -36,10 +36,6 @@ repos:
           - flake8-return==1.1.2
           - pep8-naming==0.11.1
   - repo: https://github.com/timothycrosley/isort
-    rev: 5.8.0
+    rev: 5.9.3
     hooks:
       - id: isort
-  - repo: https://github.com/jorisroovers/gitlint
-    rev: v0.15.1
-    hooks:
-      - id: gitlint
