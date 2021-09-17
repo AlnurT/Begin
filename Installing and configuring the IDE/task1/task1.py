@@ -5,9 +5,10 @@
 import platform
 import sys
 
-info = f"OS info is \n{platform.uname()}\n\nPython version is {sys.version} {platform.architecture()}"
 
-print(info)
+def system_information():
+    return f"OS info is \n{platform.uname()}\n\nPython version is {sys.version} {platform.architecture()}"
+
 
 with open("os_info.txt", "w", encoding="utf8") as file:
-    file.write(info)
+    file.write(system_information())
