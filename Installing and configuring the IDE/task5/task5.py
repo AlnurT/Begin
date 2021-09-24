@@ -3,10 +3,13 @@
 
 
 def least_divisor(n):
-    score = 2
-    while n % score != 0:
-        score += 1
-    return score
+    for score in range(3, int(n ** 0.5) + 1, 2):
+        if n % 2 == 0:
+            return 2
+        elif n % score == 0:
+            return score
+    else:
+        return n
 
 
 def main():
