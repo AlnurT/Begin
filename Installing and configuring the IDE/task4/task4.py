@@ -5,12 +5,11 @@
 После этого числа складываются и сумма выводится на экран."""
 
 
-def reverse_number(number: str) -> float:
-    reverse_int = list(number.split(".")[0])
-    reverse_fraction = list(number.split(".")[1])
-    reverse_int.reverse()
-    reverse_fraction.reverse()
-    return float("".join(reverse_int) + "." + "".join(reverse_fraction))
+from decimal import Decimal
+
+
+def reverse_number(number: str) -> Decimal:
+    return Decimal(number.split(".")[0][::-1] + "." + number.split(".")[1][::-1])
 
 
 def main():

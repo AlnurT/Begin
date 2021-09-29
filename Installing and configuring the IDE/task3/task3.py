@@ -4,7 +4,7 @@
 
 
 def summa(n: str) -> int:
-    return sum(map(int, list(n)))
+    return sum(map(int, n))
 
 
 def counting_numerals(n: str) -> int:
