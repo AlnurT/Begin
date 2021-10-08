@@ -14,10 +14,7 @@ from math import sqrt
 
 def coin_search(x: float, y: float, r: float) -> bool:
     coin_distance = sqrt(x ** 2 + y ** 2)
-    if coin_distance <= r:
-        return True
-    else:
-        return False
+    return coin_distance <= r
 
 
 def main():
