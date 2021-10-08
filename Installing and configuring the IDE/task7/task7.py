@@ -21,8 +21,7 @@
 def special_years(first_year: int, second_year: int) -> str:
     years = ""
     for year in range(first_year, second_year + 1):
-        list_year = sorted(map(int, str(year)))
-        if list_year.count(list_year[1]) == 3:
+        if str(year).count(str(year)[0]) == 3 or str(year).count(str(year)[1]) == 3:
             years += f"{year}\n"
     return years
 
