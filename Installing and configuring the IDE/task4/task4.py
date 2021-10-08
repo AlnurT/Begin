@@ -5,20 +5,21 @@
 После этого числа складываются и сумма выводится на экран."""
 
 
-from decimal import Decimal
+def reverse_number(number: str, part: int) -> str:
+    return number.split(".")[part][::-1]
 
 
-def reverse_number(number: str) -> Decimal:
-    return Decimal(number.split(".")[0][::-1] + "." + number.split(".")[1][::-1])
+def assembly_number(number: str) -> float:
+    return float(reverse_number(number, 0) + "." + reverse_number(number, 1))
 
 
 def main():
     n = input("Введите первое число: ")
     k = input("Введите второе число: ")
 
-    print(f"\nПервое число наоборот: {reverse_number(n)}")
-    print(f"Второе число наоборот: {reverse_number(k)}")
-    print(f"Сумма: {reverse_number(n) + reverse_number(k)}")
+    print(f"\nПервое число наоборот: {assembly_number(n)}")
+    print(f"Второе число наоборот: {assembly_number(k)}")
+    print(f"Сумма: {assembly_number(n) + assembly_number(k)}")
 
 
 if __name__ == "__main__":

@@ -5,10 +5,9 @@
 def least_divisor(n):
     if n % 2 == 0:
         return 2
-    else:
-        for score in range(3, int(n ** 0.5) + 1, 2):
-            if n % score == 0:
-                return score
+    for score in range(3, int(n ** 0.5) + 1, 2):
+        if n % score == 0:
+            return score
     return n
 
 
