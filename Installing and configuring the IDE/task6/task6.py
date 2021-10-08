@@ -12,7 +12,7 @@
 from math import sqrt
 
 
-def coin_search(x: float, y: float, r: float) -> bool:
+def is_coin_in_circle(x: float, y: float, r: float) -> bool:
     coin_distance = sqrt(x ** 2 + y ** 2)
     return coin_distance <= r
 
@@ -23,7 +23,7 @@ def main():
     y = float(input("Y: "))
     r = float(input("Введите радиус: "))
 
-    if coin_search(x, y, r):
+    if is_coin_in_circle(x, y, r):
         print("Монетка где-то рядом")
     else:
         print("Монетки в области нет")
