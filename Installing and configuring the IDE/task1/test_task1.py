@@ -1,2 +1,2 @@
-def test_task1():
+def test_system_information():
     assert True
