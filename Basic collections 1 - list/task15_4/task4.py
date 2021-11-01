@@ -20,9 +20,7 @@
 
 def video_cards_selection(models: list) -> list:
     maxx = max(models)
-    for _ in range(models.count(maxx)):
-        models.remove(maxx)
-    return models
+    return [video_card for video_card in models if video_card != maxx]
 
 
 def main():
