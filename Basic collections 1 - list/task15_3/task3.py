@@ -19,11 +19,10 @@
 
 
 def cell_selection(number: int, efficiency: list) -> str:
-    low_efficiency = ""
-    for rank in range(number):
-        if rank + 1 > efficiency[rank]:
-            low_efficiency += str(efficiency[rank]) + " "
-    return low_efficiency
+    low_efficiency = [
+        efficiency[rank] for rank in range(number) if rank + 1 > efficiency[rank]
+    ]
+    return " ".join(map(str, low_efficiency))
 
 
 def main():
