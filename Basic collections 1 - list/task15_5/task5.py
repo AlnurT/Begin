@@ -10,34 +10,39 @@ films = ["Крепкий орешек’, "Назад в будущее’, "Т�
 В конце выведите весь список любимых фильмов."""
 
 
-def films_selection(list_of_films: list, my_films: list) -> list:
-    favorite_films = []
-    for film in my_films:
-        if list_of_films.count(film) != 0:
-            favorite_films.append(film)
-    return favorite_films
+list_of_films = [
+    "Крепкий орешек",
+    "Назад в будущее",
+    "Таксист",
+    "Леон",
+    "Богемская рапсодия",
+    "Город грехов",
+    "Мементо",
+    "Отступники",
+    "Деревня",
+]
 
 
-def main():
-    list_of_films = [
-        "Крепкий орешек",
-        "Назад в будущее",
-        "Таксист",
-        "Леон",
-        "Богемская рапсодия",
-        "Город грехов",
-        "Мементо",
-        "Отступники",
-        "Деревня",
+def favorite_films(list_of_films: list, my_films: list) -> list:
+    return [
+        film for film in my_films for web_films in list_of_films if film == web_films
     ]
+
+
+def main(list_of_films):
     number_of_films = int(input("Введите число фильмов: "))
     my_films = []
     for _ in range(number_of_films):
         print(f"{_ + 1} фильм: ", end="")
-        my_films.append(input())
+        film = input()
+        my_films.append(film)
+        if [film for web_films in list_of_films if film == web_films] == []:
+            print(f"Фильма {film} нет в списке киносайта")
+        else:
+            print(f"Фильм {film} добавлен в список любимых")
 
-    print(f"\nСписок любимых фильмов: {films_selection(list_of_films, my_films)}")
+    print(f"\nСписок любимых фильмов: {favorite_films(list_of_films, my_films)}")
 
 
 if __name__ == "__main__":
-    main()
+    main(list_of_films)
