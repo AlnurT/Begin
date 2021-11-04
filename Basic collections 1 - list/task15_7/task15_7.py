@@ -36,8 +36,11 @@ def sorted_list_weight(weight_list: list) -> list:
 
 def number_of_new_container(new_weight_list: list, new_weight: int) -> int:
     count = 1
-    while new_weight < new_weight_list[count - 1]:
+    while new_weight <= new_weight_list[count - 1]:
         count += 1
+        if len(new_weight_list) == count:
+            count += 1
+            break
     return count
 
 
