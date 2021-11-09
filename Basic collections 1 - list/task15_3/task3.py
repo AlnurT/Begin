@@ -18,10 +18,8 @@
 Неподходящие значения: 0 2"""
 
 
-def cell_selection(number: int, efficiency: list) -> str:
-    low_efficiency = [
-        efficiency[rank] for rank in range(number) if rank + 1 > efficiency[rank]
-    ]
+def cell_selection(efficiency: list) -> str:
+    low_efficiency = filter(lambda eff: eff < efficiency.index(eff), efficiency)
     return " ".join(map(str, low_efficiency))
 
 
@@ -32,7 +30,7 @@ def main():
         print(f"Эффективность {rank + 1} клетки: ", end="")
         efficiency.append(int(input()))
 
-    print(f"\n\nНеподходящие значения: {cell_selection(number, efficiency)}")
+    print(f"\n\nНеподходящие значения: {cell_selection(efficiency)}")
 
 
 if __name__ == "__main__":
