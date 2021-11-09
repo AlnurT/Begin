@@ -10,7 +10,7 @@ films = ["Крепкий орешек’, "Назад в будущее’, "Т�
 В конце выведите весь список любимых фильмов."""
 
 
-list_of_films = [
+LIST_OF_FILMS = [
     "Крепкий орешек",
     "Назад в будущее",
     "Таксист",
@@ -23,26 +23,24 @@ list_of_films = [
 ]
 
 
-def favorite_films(list_of_films: list, my_films: list) -> list:
-    return [
-        film for film in my_films for web_films in list_of_films if film == web_films
-    ]
+def favorite_films(LIST_OF_FILMS: list, film: str) -> bool:
+    return film in LIST_OF_FILMS
 
 
-def main(list_of_films):
+def main(LIST_OF_FILMS):
     number_of_films = int(input("Введите число фильмов: "))
     my_films = []
     for _ in range(number_of_films):
         print(f"{_ + 1} фильм: ", end="")
         film = input()
-        my_films.append(film)
-        if [film for web_films in list_of_films if film == web_films] == []:
-            print(f"Фильма {film} нет в списке киносайта")
-        else:
+        if favorite_films(LIST_OF_FILMS, film):
             print(f"Фильм {film} добавлен в список любимых")
+            my_films.append(film)
+        else:
+            print(f"Фильма {film} нет в списке киносайта")
 
-    print(f"\nСписок любимых фильмов: {favorite_films(list_of_films, my_films)}")
+    print(f"\nСписок любимых фильмов: {my_films}")
 
 
 if __name__ == "__main__":
-    main(list_of_films)
+    main(LIST_OF_FILMS)
