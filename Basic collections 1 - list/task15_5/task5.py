@@ -10,7 +10,7 @@ films = ["Крепкий орешек’, "Назад в будущее’, "Т�
 В конце выведите весь список любимых фильмов."""
 
 
-LIST_OF_FILMS = [
+LIST_OF_FILMS = {
     "Крепкий орешек",
     "Назад в будущее",
     "Таксист",
@@ -20,22 +20,22 @@ LIST_OF_FILMS = [
     "Мементо",
     "Отступники",
     "Деревня",
-]
+}
 
 
-def is_film_on_list(LIST_OF_FILMS: list, film: str) -> bool:
+def is_film_on_list(LIST_OF_FILMS: set, film: str) -> bool:
     return film in LIST_OF_FILMS
 
 
 def main(LIST_OF_FILMS):
     number_of_films = int(input("Введите число фильмов: "))
-    my_films = []
+    my_films = set()
     for _ in range(number_of_films):
         print(f"{_ + 1} фильм: ", end="")
         film = input()
         if is_film_on_list(LIST_OF_FILMS, film):
-            print(f"Фильм {film} добавлен в список любимых")
-            my_films.append(film)
+            print(f"Фильм {film} добавлени в список любимых")
+            my_films.add(film)
         else:
             print(f"Фильма {film} нет в списке киносайта")
 
