@@ -6,6 +6,8 @@ ignore = E203, E501, W503,  # handled by black
          D107,  #  Missing docstring in __init__
          T001,  # print found
          N803,  # Argument name should be lowercase
+         S101,  # Test for use of assert
+
 
 exclude =
     venv

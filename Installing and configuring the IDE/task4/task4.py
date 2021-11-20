@@ -5,41 +5,17 @@
 После этого числа складываются и сумма выводится на экран."""
 
 
-def reverse(number: str) -> str:
-    reverse_number = ""
-    for symbol in number:
-        reverse_number = symbol + reverse_number
-    return reverse_number
-
-
-def separation_and_assembly(number: str) -> float:
-    int_numb_bool = True
-    int_number = ""
-    fractional_number = ""
-    for symbol in number:
-        if symbol != "." and int_numb_bool:
-            int_number += symbol
-        elif symbol == ".":
-            int_numb_bool = False
-        elif not int_numb_bool:
-            fractional_number += symbol
-    return float(reverse(int_number) + "." + reverse(fractional_number))
-
-
-def summa_new_numbers(new_n: float, new_k: float) -> float:
-    return new_n + new_k
+def reverse_number(number: str) -> str:
+    return ".".join(map(lambda s: s[::-1], number.split(".")))
 
 
 def main():
     n = input("Введите первое число: ")
     k = input("Введите второе число: ")
 
-    new_n = separation_and_assembly(n)
-    new_k = separation_and_assembly(k)
-
-    print(f"\nПервое число наоборот: {new_n}")
-    print(f"Второе число наоборот: {new_k}")
-    print(f"Сумма: {summa_new_numbers(new_n, new_k)}")
+    print(f"\nПервое число наоборот: {reverse_number(n)}")
+    print(f"Второе число наоборот: {reverse_number(k)}")
+    print(f"Сумма: {reverse_number(n) + reverse_number(k)}")
 
 
 if __name__ == "__main__":
