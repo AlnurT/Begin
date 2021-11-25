@@ -23,15 +23,14 @@
 
 
 def shift_of_elements_in_list(listt: list, shift: int) -> list:
-    if shift >= 0:
-        for _ in range(shift):
-            listt.insert(0, listt[len(listt) - 1])
-            listt.pop()
+    if shift > len(listt):
+        shift -= len(listt)
+        shift_of_elements_in_list(listt, shift)
+    elif shift < 0:
+        shift += len(listt)
+        shift_of_elements_in_list(listt, shift)
     else:
-        for _ in range(abs(shift)):
-            listt.insert(len(listt), listt[0])
-            listt.pop(0)
-    return listt
+        return listt[shift - 1:] + listt[:shift - 1]
 
 
 def main():
