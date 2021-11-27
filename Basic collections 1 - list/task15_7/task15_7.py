@@ -29,8 +29,8 @@
 """
 
 
-def is_weight_more_than_200(new_weight: int) -> bool:
-    return new_weight > 200
+def is_weight_more_than_200(weight: int) -> bool:
+    return weight > 200
 
 
 def sort_list_weight(weight_list: list) -> list:
@@ -38,31 +38,27 @@ def sort_list_weight(weight_list: list) -> list:
     return weight_list
 
 
-def show_number_of_new_container(new_weight_list: list, new_weight: int) -> int:
-    count = 1
-    while new_weight <= new_weight_list[count - 1]:
-        count += 1
-        if len(new_weight_list) == count:
-            count += 1
-            break
-    return count
+def show_number_of_new_container(sorted_weight_list: list, new_weight: int) -> int:
+    for container in enumerate(sorted_weight_list):
+        if new_weight > container[1]:
+            return container[0] + 1
+    return len(sorted_weight_list) + 1
 
 
 def main():
     number_of_containers = int(input("Кол-во контейнеров: "))
-    count = 1
     weight_list = []
-    while count <= number_of_containers:
+    for container in range(number_of_containers):
         weight = int(input("Введите вес контейнера: "))
-        if weight <= 200:
-            weight_list.append(weight)
-            count += 1
-        else:
-            print("Превышен вес контейнера!")
+        while is_weight_more_than_200(weight):
+            weight = int(input("\nВес контейнера привыщает 200 кг, введите другой вес!"
+                                   "\nВведите вес контейнера: "))
+        weight_list.append(weight)
+        print(f"Вес {container + 1} контейнера: {weight}")
 
-    print()
-    new_weight_list = sort_list_weight(weight_list)
-    for container in enumerate(new_weight_list):
+    print("\nОтсортированный список контейнеров:")
+    sorted_weight_list = sort_list_weight(weight_list)
+    for container in enumerate(sorted_weight_list):
         print(f"Вес {container[0] + 1} контейнера: {container[1]}")
 
     new_weight = int(input("\nВведите вес нового контейнера: "))
@@ -71,7 +67,7 @@ def main():
                                "\nВведите вес нового контейнера: "))
 
     print(
-        f"Номер, куда встанет новый контейнер: {show_number_of_new_container(new_weight_list, new_weight)}"
+        f"Номер, куда встанет новый контейнер: {show_number_of_new_container(sorted_weight_list, new_weight)}"
     )
 
 
