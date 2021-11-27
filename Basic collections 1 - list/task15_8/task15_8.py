@@ -22,15 +22,12 @@
 """
 
 
-def shift_of_elements_in_list(listt: list, shift: int) -> list:
-    if shift > len(listt):
-        shift -= len(listt)
-        shift_of_elements_in_list(listt, shift)
-    elif shift < 0:
-        shift += len(listt)
-        shift_of_elements_in_list(listt, shift)
-    else:
-        return listt[shift - 1:] + listt[:shift - 1]
+def shift_elements_in_list(listt: list, shift: int) -> list:
+    if abs(shift) > len(listt):
+        shift %= len(listt)
+    if shift < 0:
+        shift = len(listt) - abs(shift)
+    return listt[-(len(listt) - shift):] + listt[:shift]
 
 
 def main():
@@ -42,7 +39,7 @@ def main():
         listt.append(int(input()))
 
     print(f"Изначальный список: {listt}")
-    print(f"Сдвинутый список: {shift_of_elements_in_list(listt, shift)}")
+    print(f"Сдвинутый список: {shift_elements_in_list(listt, shift)}")
 
 
 if __name__ == "__main__":
