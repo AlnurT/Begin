@@ -23,17 +23,13 @@
 """
 
 
-def word_is_palindrome(word: str) -> bool:
-    word_len = len(word)
-    for count in range(round(word_len / 2)):
-        if word[count] != word[word_len - 1 - count]:
-            return False
-    return True
+def is_word_palindrome(word: str) -> bool:
+    return word == word[::-1]
 
 
 def main():
     word = input("Введите слово: ")
-    if word_is_palindrome(word):
+    if is_word_palindrome(word):
         print("Слово является палиндромом")
     else:
         print("Слово не является палиндромом")

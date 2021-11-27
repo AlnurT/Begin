@@ -1,9 +1,9 @@
-from task15_9.task15_9 import word_is_palindrome
+from task15_9.task15_9 import is_word_palindrome
 
 
 def test_is_word_palindrome():
-    assert word_is_palindrome("мадам")
+    assert is_word_palindrome("мадам")
 
 
 def test_is_word_not_palindrome():
-    assert not word_is_palindrome("модем")
+    assert not is_word_palindrome("модем")
