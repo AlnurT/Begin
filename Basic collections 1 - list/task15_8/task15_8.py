@@ -27,7 +27,7 @@ def shift_elements_in_list(listt: list, shift: int) -> list:
         shift %= len(listt)
     if shift < 0:
         shift = len(listt) - abs(shift)
-    return listt[-(len(listt) - shift):] + listt[:shift]
+    return listt[shift:] + listt[:shift]
 
 
 def main():
