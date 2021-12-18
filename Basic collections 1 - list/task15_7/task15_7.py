@@ -39,9 +39,9 @@ def sort_list_weight(weight_list: list) -> list:
 
 
 def show_number_of_new_container(sorted_weight_list: list, new_weight: int) -> int:
-    for container in enumerate(sorted_weight_list):
-        if new_weight > container[1]:
-            return container[0] + 1
+    for container, container_weight  in enumerate(sorted_weight_list):
+        if new_weight > container_weight:
+            return container + 1
     return len(sorted_weight_list) + 1
 
 
@@ -58,16 +58,17 @@ def main():
 
     print("\nОтсортированный список контейнеров:")
     sorted_weight_list = sort_list_weight(weight_list)
-    for container in enumerate(sorted_weight_list):
-        print(f"Вес {container[0] + 1} контейнера: {container[1]}")
+    for container, container_weight in enumerate(sorted_weight_list):
+        print(f"Вес {container + 1} контейнера: {container_weight}")
 
     new_weight = int(input("\nВведите вес нового контейнера: "))
     while is_weight_more_than_200(new_weight):
         new_weight = int(input("\nВес нового контейнера привыщает 200 кг, введите другой вес!"
                                "\nВведите вес нового контейнера: "))
 
+    number_of_new_container = show_number_of_new_container(sorted_weight_list, new_weight)
     print(
-        f"Номер, куда встанет новый контейнер: {show_number_of_new_container(sorted_weight_list, new_weight)}"
+        f"Номер, куда встанет новый контейнер: {number_of_new_container}"
     )
 
 
