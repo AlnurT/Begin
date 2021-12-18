@@ -19,7 +19,7 @@
 
 
 def cell_selection(efficiency: list) -> str:
-    low_efficiency = [low[1] for low in filter(lambda eff: eff[1] < eff[0], enumerate(efficiency))]
+    low_efficiency = [eff for rank, eff in enumerate(efficiency) if eff < rank + 1]
     return " ".join(map(str, low_efficiency))
 
 
