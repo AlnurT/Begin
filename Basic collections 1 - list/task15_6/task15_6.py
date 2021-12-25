@@ -15,15 +15,21 @@
 Кол-во уникальных букв: 2"""
 
 
-def coun_unique_symbols_in(word: str) -> int:
-    unique_symbols = {symbol: word.count(symbol) for symbol in word if word.count(symbol) == 1}
-    return len(unique_symbols)
+def count_unique_symbols_in(word: str) -> int:
+    unique_symbols = {}
+    count = 0
+    for symbol in word:
+        unique_symbols[symbol] = unique_symbols.get(symbol, 0) + 1
+    for _, value in unique_symbols.items():
+        if value == 1:
+            count += 1
+    return count
 
 
 def main():
     word = input("Введите слово: ")
 
-    print(f"Кол-во уникальных букв: {coun_unique_symbols_in(word)}")
+    print(f"Кол-во уникальных букв: {count_unique_symbols_in(word)}")
 
 
 if __name__ == "__main__":
