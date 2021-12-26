@@ -1,4 +1,8 @@
-from task15_7.task15_7 import show_number_of_new_container, sort_list_weight, is_weight_more_than_200
+from task15_7.task15_7 import (
+    is_weight_more_than_200,
+    show_number_of_new_container,
+    sort_list_weight,
+)
 
 
 def test_sorted_list_weight():
