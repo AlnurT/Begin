@@ -1,3 +1,4 @@
+import pytest
 from task16_3.task16_3 import find_the_number_of_details_and_their_cost
 
 shop = [
@@ -13,13 +14,12 @@ shop = [
 ]
 
 
-def test_0_of_details_in_the_shop():
-    assert find_the_number_of_details_and_their_cost(shop, "руль") == (0, 0)
-
-
-def test_1_of_details_in_the_shop():
-    assert find_the_number_of_details_and_their_cost(shop, "рама") == (1, 12000)
-
-
-def test_3_of_details_in_the_shop():
-    assert find_the_number_of_details_and_their_cost(shop, "седло") == (3, 4500)
+@pytest.mark.parametrize(
+    ("detail", "number_of_details_and_price"),
+    [("руль", (0, 0)), ("рама", (1, 12000)), ("седло", (3, 4500))],
+)
+def test_details_in_the_shop(detail, number_of_details_and_price):
+    assert (
+        find_the_number_of_details_and_their_cost(shop, detail)
+        == number_of_details_and_price
+    )
