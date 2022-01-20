@@ -38,16 +38,13 @@
 """
 
 
-def assign_numbers_for_list_symmetry(
-    list_numbers: list, list_new_numbers: list
-) -> tuple:
+def assign_numbers_for_list_symmetry(list_numbers: list) -> list:
     insert_index = len(list_numbers)
-    for num in list_numbers:
+    for num in list_numbers.copy():
         if list_numbers == list_numbers[::-1]:
             break
         list_numbers.insert(insert_index, num)
-        list_new_numbers.insert(0, num)
-    return len(list_new_numbers), list_new_numbers
+    return list_numbers[insert_index:]
 
 
 def main():
@@ -55,9 +52,8 @@ def main():
     list_numbers = list(map(int, input().split()))
     print(f"\nПоследовательность: {list_numbers}")
 
-    amount_new_numbers = assign_numbers_for_list_symmetry(list_numbers, [])[0]
-    list_new_numbers = assign_numbers_for_list_symmetry(list_numbers, [])[1]
-    print(f"Нужно приписать чисел: {amount_new_numbers}")
+    list_new_numbers = assign_numbers_for_list_symmetry(list_numbers)
+    print(f"Нужно приписать чисел: {len(list_new_numbers)}")
     print(f"Сами числа: {list_new_numbers}")
 
 
