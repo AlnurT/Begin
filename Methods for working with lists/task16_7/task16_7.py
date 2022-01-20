@@ -22,22 +22,22 @@
 """
 
 
-def check_the_size_of_skates_per_person(skate_sizes: list, human_size: int) -> int:
+def check_the_size_of_skates_per_person(skate_sizes: dict, human_size: int) -> int:
     for skates in skate_sizes:
-        if human_size <= skates:
-            skate_sizes.remove(skates)
+        if human_size <= skate_sizes[skates]:
+            skate_sizes.pop(skates)
             return 1
     return 0
 
 
 def main():
     num_of_skates = int(input("Кол-во коньков: "))
-    skate_sizes = []
+    skate_sizes = {}
     suitable_skates = 0
 
     for skates in range(num_of_skates):
         print(f"Размер {skates + 1} пары:", end=" ")
-        skate_sizes.append(int(input()))
+        skate_sizes[skates + 1] = int(input())
 
     num_of_human = int(input("\nКол-во людей: "))
     for human in range(num_of_human):
