@@ -7,3 +7,7 @@ def test_symmetry_not_listed():
 
 def test_partial_symmetry_in_list():
     assert assign_numbers_for_list_symmetry([1, 3, 2, 2], []) == (2, [3, 1])
+
+
+def test_list_is_already_symmetry():
+    assert assign_numbers_for_list_symmetry([1, 3, 3, 1], []) == (0, [])
