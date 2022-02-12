@@ -55,6 +55,8 @@ N друзей постоянно берут в долг друг у друга 
 3 : -100
 """
 
+from collections import defaultdict
+
 
 def calculate_debt(
     dict_of_debt: dict, to_friend: int, from_friend: int, debt: int
@@ -65,9 +67,9 @@ def calculate_debt(
 
 
 def main():
-    num_of_friends = int(input("Кол-во друзей: "))
+    int(input("Кол-во друзей: "))
     num_of_receipts = int(input("Долговых расписок: "))
-    dict_of_debt = dict.fromkeys(range(1, num_of_friends + 1), 0)
+    dict_of_debt = defaultdict(int)
 
     for receipt in range(num_of_receipts):
         print(f"\n{receipt + 1}-ая расписка")
