@@ -23,9 +23,9 @@
 
 
 def check_the_size_of_skates_per_person(skate_sizes: dict, human_size: int) -> int:
-    for skates in skate_sizes:
-        if human_size <= skate_sizes[skates]:
-            skate_sizes.pop(skates)
+    for size in skate_sizes:
+        if human_size <= size and skate_sizes[size] > 0:
+            skate_sizes[size] -= 1
             return 1
     return 0
 
@@ -37,7 +37,9 @@ def main():
 
     for skates in range(num_of_skates):
         print(f"Размер {skates + 1} пары:", end=" ")
-        skate_sizes[skates + 1] = int(input())
+        size = int(input())
+        skate_sizes[size] = skate_sizes.get(size, 0) + 1
+    skate_sizes = dict(sorted(skate_sizes.items(), key=lambda x: x[0]))
 
     num_of_human = int(input("\nКол-во людей: "))
     for human in range(num_of_human):

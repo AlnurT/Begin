@@ -1,9 +1,9 @@
+import pytest
 from task16_7.task16_7 import check_the_size_of_skates_per_person
 
-
-def test_suitable_size():
-    assert check_the_size_of_skates_per_person({1: 1, 2: 2, 3: 3}, 3) == 1
+skate_sizes = {41: 2, 42: 0, 43: 1}
 
 
-def test_no_size():
-    assert check_the_size_of_skates_per_person({1: 1, 2: 2, 3: 3}, 4) == 0
+@pytest.mark.parametrize(("human_size", "for_sale"), [(42, 1), (42, 0), (44, 0)])
+def test_check_the_size_of_skates_per_person(human_size, for_sale):
+    assert check_the_size_of_skates_per_person(skate_sizes, human_size) == for_sale
