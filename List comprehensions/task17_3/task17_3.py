@@ -26,16 +26,9 @@ import random
 
 
 def create_list_of_thehighest_scores(
-    first_team_scores: list, second_team_scores: list, number_of_participants: int
+    first_team_scores: list, second_team_scores: list
 ) -> list:
-    return [
-        (
-            first_team_scores[score]
-            if first_team_scores[score] >= second_team_scores[score]
-            else second_team_scores[score]
-        )
-        for score in range(number_of_participants)
-    ]
+    return [max(score) for score in zip(first_team_scores, second_team_scores)]
 
 
 def main():
@@ -46,9 +39,7 @@ def main():
     second_team_scores = [
         round(random.uniform(5, 10), 2) for _ in range(number_of_participants)
     ]
-    winners = create_list_of_thehighest_scores(
-        first_team_scores, second_team_scores, number_of_participants
-    )
+    winners = create_list_of_thehighest_scores(first_team_scores, second_team_scores)
 
     print(f"Первая команда: {first_team_scores}")
     print(f"Вторая команда: {second_team_scores}")
