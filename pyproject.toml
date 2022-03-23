@@ -6,3 +6,6 @@ exclude = 'venv'
 profile = "black"
 multi_line_output = 3
 skip_gitignore=true
+
+[tool.poetry.dependencies]
+bandit = "=1.7.2"
