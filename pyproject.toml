@@ -8,4 +8,5 @@ multi_line_output = 3
 skip_gitignore=true
 
 [tool.poetry.dependencies]
+flake8-bandit = "2.1.2"
 bandit = "=1.7.2"
