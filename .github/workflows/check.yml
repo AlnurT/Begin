@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -U pip
-          # pip install -r ./requirements/common.txt
+          pip install -r ./requirements/common.txt
           pip install -r ./requirements/linters.txt
       - name: Black check
         run: |
